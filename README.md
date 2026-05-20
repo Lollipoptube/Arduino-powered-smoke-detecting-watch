@@ -1,8 +1,10 @@
 # Arduino-powered-smoke-detecting-watch
 It's an program using Arudion UNO (I used R3 version). Basic items you need include OLED, MQ-2, Button, and LED(1-color).
 About the OLED:
+
 The code is adjusted for 0.96-inch OLED, feel free to customize the OLED display layout based on your preferences.
 The pin locations: 
+
 OLED:
 OLED/Arduino UNO
 VCC --> 3.3V
