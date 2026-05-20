@@ -10,6 +10,7 @@ VCC --> 3.3V
  SDA --> A4(you cannot change this one)
  GND --> GND
 
+ MQ2:
  MQ-2 / Arduino UNO
  VCC  -->   5V
  A0   -->   A0
