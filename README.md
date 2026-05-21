@@ -9,13 +9,15 @@ About the ClockBasic.ino:
 It should be always connected to the PC since the time is not saved, which means you need to set up a new time whenever connect the Arduino to computer.(You need to type on the Serial Monitor like 05:06:00(hh/mm/ss))
 
 About the ClockPlus.ino
-The pin locations: 
+
 It uses EEPROM(which is built-in in the arduino board) to store the time you typed on the Serial Monitor. I didn't make the saving process automatic because frequent saving would reduce the lifespan of the EEPROM.
 
 
 You can change the threshold of the MQ-2. When smoke level exceeds the threshold, the LED will be on, and you can press the button to see the recorded time, when the button is pressed, the LED will be automatically off.
 
 When you want to check smoke level for the second time, you might need to run the code again since I haven't written any code to record for the second time yet.
+
+The pin locations: 
 
 OLED:
 OLED/Arduino UNO
