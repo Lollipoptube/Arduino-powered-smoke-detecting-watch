@@ -23,8 +23,9 @@ bool timeReceived = false;
 // Smoke detection related variables
 #define MQ2_AO_PIN A0       // MQ-2
 #define BUTTON_PIN 3        //  Button(PULLUP)
-#define SMOKE_THRESHOLD 100  // 0-1023
+#define SMOKE_THRESHOLD 62.714  // 0-1023
 #define LED_PIN 8           // LED
+#define BUZZER_PIN 12
 
 bool smokeTriggered = false;      
 int recordHour = 0, recordMinute = 0, recordSecond = 0;  
@@ -45,7 +46,8 @@ void setup() {
   // Initialize pins
   pinMode(BUTTON_PIN, INPUT_PULLUP);
   pinMode(LED_PIN, OUTPUT);
-  digitalWrite(LED_PIN, LOW);  
+  digitalWrite(LED_PIN, LOW); 
+  pinMode(BUZZER_PIN, OUTPUT);
 
   // Initialize OLED
   if(!display.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR)) {
@@ -162,7 +164,8 @@ void loop() {
       
       // When smoke is triggered, the LED turns on and stays on
       digitalWrite(LED_PIN, HIGH);
-      
+      tone(BUZZER_PIN, 1000);
+
       Serial.println("!!! SMOKE DETECTED !!!");
       Serial.print("Recorded at: ");
       Serial.print(recordHour);
@@ -192,6 +195,7 @@ void loop() {
       // When switching to record display mode, the LED turns off
       if(showingRecord) {
         digitalWrite(LED_PIN, LOW);  // Checked the record, turn off the LED
+        noTone(BUZZER_PIN);
       }
       
       Serial.print("Display mode: ");
